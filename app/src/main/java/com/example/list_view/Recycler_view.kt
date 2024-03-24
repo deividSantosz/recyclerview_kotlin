@@ -2,9 +2,11 @@ package com.example.list_view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
 
 class Recycler_view : AppCompatActivity() {
 
@@ -23,9 +25,11 @@ class Recycler_view : AppCompatActivity() {
 
         rv_list = findViewById(R.id.rv_lista);
         rv_list.adapter = MensagemAdapter(lista);
-        rv_list.layoutManager = GridLayoutManager(
-            this,
-            2
-        )
+        rv_list.layoutManager = LinearLayoutManager(this)
+
+      /*  rv_list.addItemDecoration(
+            DividerItemDecoration (this,
+                RecyclerView.VERTICAL)
+        )*/
     }
 }

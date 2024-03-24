@@ -1,9 +1,12 @@
 package com.example.list_view
 
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
@@ -17,8 +20,9 @@ class MensagemAdapter(
       //  val textNome: TextView = itemView.findViewById(R.id.text_nome)
       //  val mensagem: TextView = itemView.findViewById(R.id.text_mensagem)
       //  val horario: TextView = itemView.findViewById(R.id.text_hora)
-      val textNome: TextView = itemView.findViewById(R.id.text_card_nome)
-        val mensagem: TextView = itemView.findViewById(R.id.text_card_mensagem)
+            val textNome: TextView = itemView.findViewById(R.id.text_card_nome)
+            val mensagem: TextView = itemView.findViewById(R.id.text_card_mensagem)
+            val image_clique: ImageView = itemView.findViewById(R.id.image_card_perfil)
 
 
     }
@@ -43,6 +47,11 @@ class MensagemAdapter(
         holder.textNome.text = mensagem.nome
         holder.mensagem.text = mensagem.mensagem
 
+        //Eventos de clique
+    /*    val context = holder.image_clique.context
+        holder.image_clique.setOnClickListener {
+            Toast.makeText(context,  "Olá, ${mensagem.nome}", Toast.LENGTH_SHORT).show()
+        }*/
     }
 
     //Recuperar a quantidade de itens
