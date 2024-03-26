@@ -11,8 +11,15 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
 class MensagemAdapter(
-    private val lista:List<Mensagem>
+
 ) : Adapter<MensagemAdapter.MensagemViewHolder>() {
+
+    private var listaMensagens = mutableListOf<Mensagem>()
+    fun atualizarListaDados(lista: MutableList<Mensagem>) {
+        //listaMensagens.add(lista)
+        listaMensagens = lista
+        notifyDataSetChanged()
+    }
 
     inner class MensagemViewHolder(
         val itemView: View
@@ -43,19 +50,20 @@ class MensagemAdapter(
 
     // vinculação dos dados ao view holder
     override fun onBindViewHolder(holder: MensagemViewHolder, position: Int) {
-        val mensagem = lista[position]
+        val mensagem = listaMensagens[position]
         holder.textNome.text = mensagem.nome
         holder.mensagem.text = mensagem.mensagem
 
         //Eventos de clique
-    /*    val context = holder.image_clique.context
+        val context = holder.image_clique.context
         holder.image_clique.setOnClickListener {
-            Toast.makeText(context,  "Olá, ${mensagem.nome}", Toast.LENGTH_SHORT).show()
-        }*/
+            Toast.makeText(context, "Olá, ${mensagem.nome}", Toast.LENGTH_SHORT).show()
+
+        }
     }
 
     //Recuperar a quantidade de itens
     override fun getItemCount(): Int {
-        return lista.size
+        return listaMensagens.size
     }
 }
